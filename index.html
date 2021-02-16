@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wyszukiwarka</title>
+    <script
+      src="https://kit.fontawesome.com/5ccb2a767d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="js/main.js" type="module"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="searching">
+        
+        <div class="logo">Wyszukiwarka</div>
+        <form class="search-bar" id="search-bar">
+          <input id="search" type="text" />
+          <button class="clear-search"><i class="fas fa-times"></i></button>
+          <button id="search-btn" class="button searchButton" type="submit">
+            <i class="fas fa-search"> </i>
+          </button>
+        </form>
+      </div>
+      <div class="results">
+        <div class="statsBar">
+          <div id="stats" class="stats"></div>
+        </div>
+        <div id="searchResults" class="searchResults">
+          <div class="resultItem">
+            <div class="resultTitle">
+              <a href="">A guide to the best YouTube thumbnail</a>
+            </div>
+            <div class="resultContent">
+              <div class="resultImage">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nirmal_Purja.jpg/150px-Nirmal_Purja.jpg"
+                />
+              </div>
+              <div class="resultText">
+                <p class="resultDescription">
+                  A guide to the best YouTube thumbnail size, how to enable and  
+                  upload custom thumbnails, and best practices.
+                  A guide to the best YouTube thumbnail size, how to enable and  
+                  upload custom thumbnails, and best practices.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="resultItem">
+            <div class="resultTitle">
+              <a href="">A guide to the best YouTube thumbnail</a>
+            </div>
+            <div class="resultContent">
+              <div class="resultImage">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nirmal_Purja.jpg/150px-Nirmal_Purja.jpg"
+                />
+              </div>
+              <div class="resultText">
+                <p class="resultDescription">
+                  A guide to the best YouTube thumbnail size, how to enable and  
+                  upload custom thumbnails, and best practices.
+                  A guide to the best YouTube thumbnail size, how to enable and  
+                  upload custom thumbnails, and best practices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>
+        <span> Powered by wikipedia</span>
+      </p>
+    </footer>
+  </body>
+</html>
