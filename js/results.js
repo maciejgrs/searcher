@@ -1,4 +1,14 @@
-export const buildSearchResults = (resultArray) => {
+const deleteSearchResults = () => {
+    const parentElement = document.querySelector(".searchResults");
+    let child = parentElement.lastElementChild
+    while (child) {
+        parentElement.removeChild(child)
+        child = parentElement.lastElementChild
+    }
+}
+
+
+const buildSearchResults = (resultArray) => {
     resultArray.forEach(result => {
         const resultItem = createResultItem(result)
         const resultContent = document.createElement('div')
@@ -6,7 +16,7 @@ export const buildSearchResults = (resultArray) => {
         
         if (result.img) {
             const resultImage = createResultImage(result)
-            resultContents.append(resultImage)
+            resultContent.append(resultImage)
         }
 
         const resultText = createResultText(result)
@@ -51,3 +61,31 @@ const createResultText = (result) => {
     return resultText
 
 }
+
+
+const clearStats = ()=> {
+    document.querySelector(".stats").textContent = ''
+}
+
+const setStatsLine = (numOfResults)=> {
+  const statsLine = document.querySelector(".stats")
+
+  if (numOfResults) {
+      statsLine.textContent = `We have ${numOfResults} results for you.`
+  } else {
+      statsLine.textContent = 'No results for this search'
+  }
+}
+
+ 
+
+const clearSearch = (e) => {
+    e.preventDefault()
+    const search = document.querySelector("#search") 
+    search.value = ''
+    search.focus()
+     
+    
+}
+
+

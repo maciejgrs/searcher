@@ -1,36 +1,38 @@
-import { searchFocus } from "./searching"
-import { getSearchTerm } from "./dataFunctions"
-import { retrieveSearchResults } from "./dataFunctions"
-import { buildSearchResults } from "./searching"
-
-
-
-document.addEventListener("readystatechange", e => {
-    if (e.target.readystatechange === "complete"){
-        init()
-    }
-})
-
+ 
+ 
 const init = () => {
-    searchFocus()
-    const form = document.querySelector("search-bar")
-    form.addEventListener("submit", submitTheSearch)
-}
+    const search = document.querySelector("#search") 
+    search.value = ''
+    search.focus()
+  const form = document.querySelector("#search-bar");
+  form.addEventListener("submit", submitTheSearch);
+  const clear = document.querySelector(".clear");
+  clear.addEventListener("click", (e) => {
+    
+    if(e.target.closest("button").classList.contains("clear")) {
+        clearSearch(e);
+        console.log("clear");
+    }
+
+     
+  });
+};
 
 const submitTheSearch = (e) => {
-    e.preventDefault()
-    processTheSearch()
-    searchFocus()
-
-
-}
+  e.preventDefault();
+  deleteSearchResults();
+  processTheSearch();
+   
+};
 
 const processTheSearch = async () => {
-    const searchTerm = getSearchTerm()
-    if (searchTerm === "") return
-    const resultArray = await retrieveSearchResults(searchTerm)
+  const searchTerm = getSearchTerm();
+  if (searchTerm === "") return;
+  const resultArray = await retrieveSearchTermResults(searchTerm);
 
-    if (resultArray.length) {
-      buildSearchResults(resultArray)
-    }
-}
+  if (resultArray.length) {
+    buildSearchResults(resultArray);
+  }
+  setStatsLine(resultArray.length);
+};
+ init()

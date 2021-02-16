@@ -9,7 +9,8 @@
       crossorigin="anonymous"
     ></script>
     <link href="styles.css" rel="stylesheet" />
-    <script src="js/script.js" type="module"></script>
+    <link rel="shortcut icon" href="#">
+    
   </head>
   <body>
     <div class="container">
@@ -18,7 +19,7 @@
         <div class="logo">Wyszukiwarka</div>
         <form class="search-bar" id="search-bar">
           <input id="search" type="text" />
-          <button class="clear-search"><i class="fas fa-times"></i></button>
+          <button class="clear"><i class="fas fa-times"></i></button>
           <button id="search-btn" class="button searchButton" type="submit">
             <i class="fas fa-search"> </i>
           </button>
@@ -29,27 +30,7 @@
           <div id="stats" class="stats"></div>
         </div>
         <div id="searchResults" class="searchResults">
-          <div class="resultItem">
-            <div class="resultTitle">
-              <a href="">A guide to the best YouTube thumbnail</a>
-            </div>
-            <div class="resultContents">
-              <div class="resultImage">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nirmal_Purja.jpg/150px-Nirmal_Purja.jpg"
-                />
-              </div>
-              <div class="resultText">
-                <p class="resultDescription">
-                  A guide to the best YouTube thumbnail size, how to enable and  
-                  upload custom thumbnails, and best practices.
-                  A guide to the best YouTube thumbnail size, how to enable and  
-                  upload custom thumbnails, and best practices.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="resultItem">
+          <!-- <div class="resultItem">
             <div class="resultTitle">
               <a href="">A guide to the best YouTube thumbnail</a>
             </div>
@@ -68,7 +49,27 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
+          <!-- <div class="resultItem">
+            <div class="resultTitle">
+              <a href="">A guide to the best YouTube thumbnail</a>
+            </div>
+            <div class="resultContent">
+              <div class="resultImage">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nirmal_Purja.jpg/150px-Nirmal_Purja.jpg"
+                />
+              </div>
+              <div class="resultText">
+                <p class="resultDescription">
+                  A guide to the best YouTube thumbnail size, how to enable and  
+                  upload custom thumbnails, and best practices.
+                  A guide to the best YouTube thumbnail size, how to enable and  
+                  upload custom thumbnails, and best practices.
+                </p>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -77,5 +78,9 @@
         <span> Powered by wikipedia</span>
       </p>
     </footer>
+     
+    <script src="js/results.js"></script>
+    <script src="js/dataFunctions.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

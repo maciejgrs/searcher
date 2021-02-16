@@ -1,11 +1,11 @@
-export const getSearchTerm = () => {
-  const rawSearchTerm = document.querySelector("#search-term").value.trim();
+const getSearchTerm = () => {
+  const rawSearchTerm = document.querySelector("#search").value.trim();
   const regex = /[ ]{2,}/gi;
   const searchTerm = rawSearchTerm.replaceAll(regex, " ");
   return searchTerm;
 };
 
-export const retrieveSearchTermResults = async (searchTerm) => {
+const retrieveSearchTermResults = async (searchTerm) => {
   const wikiSearchString = getWikiSearchString(searchTerm);
   const wikiSearchResults = await requestData(wikiSearchString)
   let resultArray = []
@@ -15,7 +15,7 @@ export const retrieveSearchTermResults = async (searchTerm) => {
   } return resultArray;
 };
 
-export const getWikiSearchString = (searchTerm) => {
+const getWikiSearchString = (searchTerm) => {
   const maxChars = getMaxChars();
   const rawSearchString = `https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${searchTerm}&gsrlimit=20&prop=pageimages|extracts&exchars=${maxChars}&exintro&explaintext&exlimit=max&format=json&origin=*`;
   const searchString = encodeURI(rawSearchString)
@@ -44,21 +44,18 @@ const requestData = async (searchString) => {
 
 const processWikiResults = (results) => {
     const resultArray = []
-    Objects.keys(results).forEach(key => {
+    Object.keys(results).forEach(key => {
         const id = key
         const title = results[key].title
         const text = results[key].extract
-        const image = results[key].hasOwnProperty("thumbnail") 
-        if (image) {
-            image = results[key].thumbnail.source
-        } else {
-            image = null
-        }
-        const item {
+        const img = results[key].hasOwnProperty("thumbnail")
+        ? results[key].thumbnail.source
+        : null;
+        const item ={
             id: id,
             title: title,
             text: text,
-            image: image,
+            img: img,
         }
         resultArray.push(item)
     })
