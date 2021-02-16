@@ -1,5 +1,7 @@
 import { searchFocus } from "./searching"
 import { getSearchTerm } from "./dataFunctions"
+import { retrieveSearchResults } from "./dataFunctions"
+import { buildSearchResults } from "./searching"
 
 
 
@@ -27,4 +29,8 @@ const processTheSearch = async () => {
     const searchTerm = getSearchTerm()
     if (searchTerm === "") return
     const resultArray = await retrieveSearchResults(searchTerm)
+
+    if (resultArray.length) {
+      buildSearchResults(resultArray)
+    }
 }
