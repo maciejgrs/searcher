@@ -48,6 +48,7 @@ const processWikiResults = (results) => {
         const id = key
         const title = results[key].title
         const text = results[key].extract
+        const url = results[key]
         const img = results[key].hasOwnProperty("thumbnail")
         ? results[key].thumbnail.source
         : null;
