@@ -33,11 +33,13 @@ const createResultItem = (result) => {
     const resultTitle = document.createElement('div')
     resultTitle.classList.add("resultTitle")
     const link = document.createElement('a')
-    link.href = `https://en.wikipedia.org/curid=${result.id}`
+    link.href = result.fullurl
     link.textContent = result.title
     link.target = "_blank"
     resultTitle.append(link)
     resultItem.append(resultTitle)
+    const newResultTitle = result.title.split(' ').join('_')
+    link.href = `https://en.wikipedia.org/wiki/${newResultTitle}`
     return resultItem
 }
 
