@@ -9,6 +9,12 @@ body {
     flex-direction: column;
 
 }
+img {
+  
+   width: 100%;
+   height: auto;
+} 
+ 
 .logo {
     display: flex;
     justify-content: center;
@@ -28,7 +34,7 @@ body {
 }
 .resultTitle {
     display: flex;
-     
+    margin-top: 3px; 
     justify-content: center;
     margin-bottom: 10px;
 }
@@ -38,13 +44,25 @@ body {
 
 p {
     margin-left: 10px;
-    max-width: 250px;
+    max-width: 80vw;
+}
+.resultItem {
+    border-bottom: 1px solid black;
+}
+@media screen and (max-width: 1080px) {
+
+    img {
+        margin-top: 15px;
+    }
 }
 @media screen and (max-width: 460px) {
+    img {
+        margin-top: 20px;
+    }
 
     p {
         margin-left: 3px;
-        max-width: 150px;
+        max-width: 330px;
       
     }
     
@@ -60,10 +78,12 @@ p {
 }
 @media screen and (max-width: 326px) {
 
-
+    img {
+        margin-top: 20px;
+    }
     p {
         margin-left: 3px;
-        max-width: 120px;
+        max-width: 220px;
     }
     
 .search-bar {

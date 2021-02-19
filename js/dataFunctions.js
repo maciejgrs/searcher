@@ -7,20 +7,20 @@ const getSearchTerm = () => {
 
 const retrieveSearchTermResults = async (searchTerm) => {
   const wikiSearchString = getWikiSearchString(searchTerm);
-  const wikiSearchResults = await requestData(wikiSearchString)
-  let resultArray = []
+  const wikiSearchResults = await requestData(wikiSearchString);
+  let resultArray = [];
   if (wikiSearchResults.hasOwnProperty("query")) {
-      resultArray = processWikiResults(wikiSearchResults.query.pages)
-
-  } return resultArray;
+    resultArray = processWikiResults(wikiSearchResults.query.pages);
+  }
+  return resultArray;
 };
 
 const getWikiSearchString = (searchTerm) => {
   const maxChars = getMaxChars();
   const rawSearchString = `https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${searchTerm}&gsrlimit=20&prop=pageimages|extracts&exchars=${maxChars}&exintro&explaintext&exlimit=max&format=json&origin=*`;
-  const searchString = encodeURI(rawSearchString)
+  const searchString = encodeURI(rawSearchString);
 
-  return searchString
+  return searchString;
 };
 
 const getMaxChars = () => {
@@ -33,32 +33,35 @@ const getMaxChars = () => {
 };
 
 const requestData = async (searchString) => {
-    try {
-        const response = await fetch(searchString)
-        const data = await response.json()
-        return data
-    } catch (err) {
-        console.log(err);
-    }
-}
+  try {
+    const response = await fetch(searchString);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 const processWikiResults = (results) => {
-    const resultArray = []
-    Object.keys(results).forEach(key => {
-        const id = key
-        const title = results[key].title
-        const text = results[key].extract
-        const url = results[key]
-        const img = results[key].hasOwnProperty("thumbnail")
-        ? results[key].thumbnail.source
-        : null;
-        const item ={
-            id: id,
-            title: title,
-            text: text,
-            img: img,
-        }
-        resultArray.push(item)
-    })
-    return resultArray
-}
+  const resultArray = [];
+  Object.keys(results).forEach((key) => {
+    const id = key;
+    const title = results[key].title;
+    const text = results[key].extract;
+    const url = results[key];
+    let img = results[key].hasOwnProperty("thumbnail");
+    if (img) {
+      img = results[key].thumbnail.source;
+    } else {
+      img = null;
+    }
+    const item = {
+      id: id,
+      title: title,
+      text: text,
+      img: img,
+    };
+    resultArray.push(item);
+  });
+  return resultArray;
+};

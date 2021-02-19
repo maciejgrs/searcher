@@ -12,6 +12,11 @@ body {
           flex-direction: column;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,6 +45,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 3px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -54,13 +60,26 @@ body {
 
 p {
   margin-left: 10px;
-  max-width: 250px;
+  max-width: 80vw;
+}
+
+.resultItem {
+  border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 1080px) {
+  img {
+    margin-top: 15px;
+  }
 }
 
 @media screen and (max-width: 460px) {
+  img {
+    margin-top: 20px;
+  }
   p {
     margin-left: 3px;
-    max-width: 150px;
+    max-width: 330px;
   }
   .search-bar {
     display: -webkit-box;
@@ -80,9 +99,12 @@ p {
 }
 
 @media screen and (max-width: 326px) {
+  img {
+    margin-top: 20px;
+  }
   p {
     margin-left: 3px;
-    max-width: 120px;
+    max-width: 220px;
   }
   .search-bar {
     display: -webkit-box;
